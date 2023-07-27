@@ -1,0 +1,39 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: apigateway-service
+  profiles:
+    active: native
+  cloud:
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: member
+          uri: http://member.camping
+          predicates:
+            - Path=/members/**
+          filters:
+            - AuthorizationHeaderFilter
+        - id: booking
+          uri: http://member.booking
+          predicates:
+            - Path=/booking/**
+          filters:
+ #           - AuthorizationHeaderFilter
+
+
+#token:
+#  secret: user_token
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus
