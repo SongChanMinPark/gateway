@@ -22,7 +22,7 @@ spring:
           filters:
             - AuthorizationHeaderFilter
         - id: booking
-          uri: http://member.booking
+          uri: http://booking.camping
           predicates:
             - Path=/booking/**
           filters:
