@@ -42,8 +42,9 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
 
-            log.info("GatewayFilter === ");
+            log.info("============= Auth GatewayFilter ============= ");
             log.info("Logging PRE Start : request id = {}", request.getId());
+            log.info("Logging PRE Start : request uri = {}", request.getURI());
 
             MultiValueMap<String, HttpCookie> cookies = request.getCookies(); // request.getCookies();
 
