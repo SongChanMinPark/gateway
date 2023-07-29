@@ -23,20 +23,19 @@ spring:
           filters:
             - AuthorizationHeaderFilter
         - id: login
-          uri: http://member.camping
+          uri: http://member.camping:8080
           predicates:
             - Path=/login
         - id: signon
-          uri: http://member.camping
+          uri: http://member.camping:8080
           predicates:
             - Path=/signon
         - id: booking
-          #uri: http://camping-gaja-go.com/
-          uri: http://booking.camping
+          uri: http://booking.camping:8080
           predicates:
             - Path=/booking/**
-          filters:
- #           - AuthorizationHeaderFilter
+#          filters:
+#           - AuthorizationHeaderFilter
 
 
 #token:
