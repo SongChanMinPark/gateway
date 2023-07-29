@@ -28,7 +28,7 @@ spring:
         - id: signon
           uri: http://member.camping:8080
           predicates:
-            - Path=/signon
+            - Path=/signup
         - id: booking
           uri: http://booking.camping:8080
           predicates:
