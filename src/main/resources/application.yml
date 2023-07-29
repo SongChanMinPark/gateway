@@ -15,13 +15,23 @@ spring:
             preLogger: true
             postLogger: true
       routes:
-        - id: member
+        - id: members
           uri: http://member.camping
+          #uri: http://localhost:8080
           predicates:
             - Path=/members/**
           filters:
             - AuthorizationHeaderFilter
+        - id: login
+          uri: http://member.camping
+          predicates:
+            - Path=/login
+        - id: signon
+          uri: http://member.camping
+          predicates:
+            - Path=/signon
         - id: booking
+          #uri: http://camping-gaja-go.com/
           uri: http://booking.camping
           predicates:
             - Path=/booking/**
