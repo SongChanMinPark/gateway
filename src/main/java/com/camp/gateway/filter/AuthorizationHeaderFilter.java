@@ -49,6 +49,11 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
             HttpCookie cookie = cookies.getFirst("token");
 
+            if(cookie == null){
+                log.info("Cookie is not exists  :::::::: ");
+                return onError(exchange, "Cookie is not exists", HttpStatus.UNAUTHORIZED);
+            }
+
             String jwt =cookie.getValue();
             log.info("jwt  :::::::: {}", jwt);
 
@@ -56,31 +61,6 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
                 return onError(exchange, "JWT token is not valid", HttpStatus.UNAUTHORIZED);
             }
 
-
-
-
-/*
-            for(HttpCookie cookie:aa) {
-                if(cookie.getName().equals("useremail")) {
-                    logger.info(cookie.getValue());
-                }
-            }
-*/
-
-
-/*
-            if (!request.getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
-                return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
-            }
-
-            String authorizationHeader = request.getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
-            String jwt = authorizationHeader.replace("Bearer", "");
-
-
-            if (!isJwtValid(jwt)) {
-                return onError(exchange, "JWT token is not valid", HttpStatus.UNAUTHORIZED);
-            }
-*/
             return chain.filter(exchange);
         };
     }
