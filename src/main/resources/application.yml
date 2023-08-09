@@ -33,8 +33,25 @@ spring:
           uri: http://booking.camping:8080
           predicates:
             - Path=/booking/**
-#          filters:
-#           - AuthorizationHeaderFilter
+          filters:
+            - AuthorizationHeaderFilter
+        - id: campsite
+            uri: http://campsite.camping:8080
+            predicates:
+              - Path=/campsite/**
+          filters:
+            - AuthorizationHeaderFilter
+        - id: review
+            uri: http://review.camping:8080
+            predicates:
+              - Path=/review/**
+          filters:
+            - AuthorizationHeaderFilter
+#        - id: ui
+          # uri: https://h2s2la.github.io/
+#          uri: https://h2s2la.github.io
+#          predicates:
+#            - Path=/
 
 
 #token:
