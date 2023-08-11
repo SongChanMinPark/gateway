@@ -54,7 +54,7 @@ spring:
           filters:
             - AuthorizationHeaderFilter
         - id: review
-          uri: http://review.camping:8080
+          uri: http://review.camping:8000
           predicates:
             - Path=/review/**
           filters:
