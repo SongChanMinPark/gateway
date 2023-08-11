@@ -48,15 +48,15 @@ spring:
           filters:
             - AuthorizationHeaderFilter
         - id: campsite
-            uri: http://campsite.camping:8080
-            predicates:
-              - Path=/campsite/**
+          uri: http://campsite.camping:8080
+          predicates:
+            - Path=/campsite/**
           filters:
             - AuthorizationHeaderFilter
         - id: review
-            uri: http://review.camping:8080
-            predicates:
-              - Path=/review/**
+          uri: http://review.camping:8080
+          predicates:
+            - Path=/review/**
           filters:
             - AuthorizationHeaderFilter
 #        - id: ui
