@@ -17,7 +17,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: '*'
+            allowedOrigins: 'camping-gaja-go.com'
             allow-credentials: true
             allowedHeaders: '*'
             allowedMethods:
