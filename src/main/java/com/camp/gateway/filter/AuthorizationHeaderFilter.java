@@ -45,7 +45,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
             log.info("============= Auth GatewayFilter ============= ");
             log.info("Logging PRE Start : request id = {}", request.getId());
             log.info("Logging PRE Start : request uri = {}", request.getURI());
-
+            /*
             MultiValueMap<String, HttpCookie> cookies = request.getCookies(); // request.getCookies();
 
             HttpCookie cookie = cookies.getFirst("token");
@@ -61,7 +61,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
             if (!isJwtValid(jwt)) {
                 return onError(exchange, "JWT token is not valid", HttpStatus.UNAUTHORIZED);
             }
-
+            */
             return chain.filter(exchange);
         };
     }
