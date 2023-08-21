@@ -26,6 +26,7 @@ spring:
               - POST
               - DELETE
               - OPTIONS
+              - PATCH
       routes:
         - id: members
           uri: http://member.camping:8080
